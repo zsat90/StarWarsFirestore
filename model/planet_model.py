@@ -7,7 +7,7 @@ class PlanetModel:
         self.collection = self.db.collection('planets')
 
     # Add planet
-    def get_planet(self, planet_data):
+    def add_planet(self, planet_data):
         try:
             return self.collection.add(planet_data), None
         except Exception as e:
