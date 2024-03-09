@@ -6,7 +6,6 @@ people_model = PeopleModel()
 
 
 # Add a person
-@app.route('/people', methods=['POST'])
 def add_person():
     person_data = request.json
     result, error = people_model.add_person(person_data)
@@ -16,7 +15,6 @@ def add_person():
 
 
 # Get person by id
-@app.route('/people/<person_id>', methods=['GET'])
 def get_person(person_id):
     result, error = people_model.get_by_id(person_id)
     if error:
@@ -25,7 +23,6 @@ def get_person(person_id):
 
 
 # Update a person
-@app.route('/people/<person_id>', method=['PUT'])
 def update_person(person_id):
     update_data = request.json
     result, error = people_model.update_person(person_id, update_data)
@@ -35,7 +32,6 @@ def update_person(person_id):
 
 
 # Delete a person
-@app.route('/people/<person_id>', methods=['DELETE'])
 def delete_person(person_id):
     message, error = people_model.delete_person(person_id)
     if error:
@@ -44,7 +40,6 @@ def delete_person(person_id):
 
 
 # Get list
-@app.route('/people', methods=['GET'])
 def get_people():
     result, error = people_model.get_people()
     if error:
